@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content white-text">
+                <div class="row">
+                    <div class="col s5">
+                        <!-- <form #usersForm="ngForm" (ngSubmit)="onSubmit(usersForm)"> -->
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="name" [(ngModel)]="user.name" placeholder="name">
+                                <label>Name :
+                                    <label class="red-text"></label>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="surname" [(ngModel)]="user.surname" placeholder="surname">
+                                <label>surname :</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="age" [(ngModel)]="user.age" placeholder="18">
+                                <label>Age :</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn btn-custom right" type="button" style="background-color: chartreuse"
+                                    (click)="resetFormInput()">Sıfırla</button>
+                                <button class="btn btn-custom right" id="saved" (click)="SaveForm(user)" type="submit"
+                                    style="background-color: black">Kaydet</button>
+                                <button type="hidden" class="btn btn-custom right" type="button" (click)="Update(user)">
+                                    Guncelle
+                                </button>
+
+                            </div>
+                        </div>
+                        <!-- </form> -->
+                    </div>
+                    <div class="col s7">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>surname</th>
+                                    <th>age</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tr *ngFor="let ur of users">
+                                <td>{{ur.name}}</td>
+                                <td>{{ur.surname}}</td>
+                                <td>{{ur.age}}</td>
+                                <td>
+                                    <a class="action-btn" (click)="Edit(ur)">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+                                    <a class="action-btn" (click)="Delete(ur._id)">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
